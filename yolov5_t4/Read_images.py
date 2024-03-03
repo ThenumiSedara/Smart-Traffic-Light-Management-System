@@ -4,10 +4,10 @@ import os
 import json
 
 # Script directory
-script_directory = "../yolov5/"
+script_directory = "../git_repo/Smart-Traffic-Light-Management-System/yolov5_t4/"
 
 # Base directory where you want to save the output images and results
-base_output_directory = "../yolov5/runs/detect/"
+base_output_directory = "D:/DSGP/git_repo/Smart-Traffic-Light-Management-System/yolov5_t4/yolov5/runs/detect"
 
 # Create the base output directory if it does not exist
 os.makedirs(base_output_directory, exist_ok=True)
@@ -77,7 +77,7 @@ for item in total_vehicle_counts_list:
     merged_counts.update(item)
 
 # Save total vehicle counts to a file
-output_file = ("../yolov5_t4/object_counts.json")
+output_file = ("../git_repo/Smart-Traffic-Light-Management-System/yolov5_t4/object_counts.json")
 with open(output_file, 'w') as f:
     json.dump(merged_counts, f)
 
