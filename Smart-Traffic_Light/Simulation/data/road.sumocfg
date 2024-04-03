@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/sumoConfiguration.xsd">
+
+    <input>
+        <net-file value="road.net.xml"/>
+        <route-files value="road.rou.xml"/>
+        <!--<type-files value="road.typ.xml"/>-->
+        <additional-files value="e2.add.xml"/>
+        <start value="true"/> 
+        <gui-settings-file value="road.settings.xml"/>
+    </input>
+
+    <time>
+        <begin value="0"/>
+    </time>
+
+    <report>
+        <verbose value="false"/>
+        <no-step-log value="false"/>
+    </report>
+
+</configuration>
