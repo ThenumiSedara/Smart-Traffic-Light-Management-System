@@ -4,10 +4,10 @@ import os
 import json
 
 # Script directory
-script_directory = "../git_repo/Smart-Traffic-Light-Management-System/yolov5_t4/"
+script_directory = "../Smart-Traffic_Light/"
 
 # Base directory where you want to save the output images and results
-base_output_directory = "D:/DSGP/git_repo/Smart-Traffic-Light-Management-System/yolov5_t4/yolov5/runs/detect"
+base_output_directory = "../Smart-Traffic_Light/Object-Detection/yolov5/runs/detect"
 
 # Create the base output directory if it does not exist
 os.makedirs(base_output_directory, exist_ok=True)
@@ -16,7 +16,7 @@ os.makedirs(base_output_directory, exist_ok=True)
 exp_index = len(os.listdir(base_output_directory))
 
 # Path to the folder containing images
-image_folder = '../yolov5_t4/input_images'
+image_folder = '../Smart-Traffic_Light/Object-Detection/input_images'
 
 # List of image paths
 image_paths = [os.path.join(image_folder, file) for file in os.listdir(image_folder) if file.endswith(('.jpg', '.png'))]
@@ -36,7 +36,7 @@ for image_path in image_paths:
     image_file_name = os.path.basename(image_path)
 
     # Run the command and capture its output
-    command = f'python ../yolov5_t4/yolov5/detect.py --source {image_path} --data ../yolov5_t4/dataset/dataset.yaml --weights ../yolov5_t4/yolov5/runs/train/exp/weights/best.pt --project {exp_directory}'
+    command = f'python ../Smart-Traffic_Light/Object-Detection/yolov5/detect.py --source {image_path} --data ../Smart-Traffic_Light/Object-Detection/dataset/dataset.yaml --weights ../Smart-Traffic_Light/Object-Detection/yolov5/runs/train/exp/weights/best.pt --project {exp_directory}'
     process = subprocess.Popen(command, cwd=script_directory, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     output, error = process.communicate()
 
@@ -77,8 +77,9 @@ for item in total_vehicle_counts_list:
     merged_counts.update(item)
 
 # Save total vehicle counts to a file
-output_file = ("../git_repo/Smart-Traffic-Light-Management-System/yolov5_t4/object_counts.json")
+output_file = ("../Smart-Traffic_Light/Object-Detection/object_counts.json")
 with open(output_file, 'w') as f:
     json.dump(merged_counts, f)
 
 print("Total vehicle counts saved to:", output_file)
+
