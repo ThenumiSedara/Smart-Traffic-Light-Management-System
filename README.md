@@ -11,15 +11,16 @@ YOLOv5 Model Integration: Integration of the YOLOv5 model for vehicle detection 
 Positive Evaluation Results: Evaluation results demonstrate significant improvements in traffic flow, congestion reduction, and safety enhancement.
 
 ## Technologies Used
-Python: Programming language used for system development.
-YOLOv5 Model: State-of-the-art model for real-time object detection.
-Image Processing Algorithms: Algorithms used for vehicle detection and traffic analysis.
-Machine Learning: Techniques applied for traffic pattern recognition and prediction.
- 
+- Python: Programming language used for system development.
+- YOLOv5 Model: State-of-the-art model for real-time object detection.
+- Image Processing Algorithms: Algorithms used for vehicle detection and traffic analysis.
+- Machine Learning: Techniques applied for traffic pattern recognition and prediction.
+
 ## Contributors
-Demika De Silva – 20221356
-Senuda Liyanage – 20210649
-Thenumi Sedara – 20220679
-Hasinindu Jayashan - 20211295
+- Demika De Silva – 20221356
+- Senuda Liyanage – 20210649
+- Thenumi Sedara – 20220679
+- Hasinindu Jayashan - 20211295
+
 
 
