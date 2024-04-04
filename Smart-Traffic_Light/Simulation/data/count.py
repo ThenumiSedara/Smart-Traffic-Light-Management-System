@@ -17,16 +17,6 @@ def read_vehicle_counts(json_file):
         print(f"Error: File '{json_file}' not found.")
         return None
 
-def generate_vehicles(counts):
-    for image_file, count in counts.items():
-        video_id = extract_img_frame_info(image_file)
-        route_id = map_img_id_to_route_id(video_id)
-        if route_id:
-            for _ in range(count):
-                # This is a simplified example. Customize your vehicle generation as needed.
-                traci.vehicle.add(vehID=f"vehicle_{video_id}_{_}", routeID=route_id, depart=traci.simulation.getTime())
-        else:
-            print(f"Error: No route ID found for video ID '{video_id}'")
 
 def map_img_id_to_route_id(video_id):
     # Example mapping, adjust according to your needs
@@ -36,11 +26,46 @@ def map_img_id_to_route_id(video_id):
         "SouthBound": "SouthBound",
         "WestBound": "WestBound",
     }.get(video_id, None)
+    
 
 def extract_img_frame_info(image_file):
     # Directly use the file name as the video ID, remove the file extension
     video_id = os.path.splitext(image_file)[0]
     return video_id
+
+
+def generate_vehicles(counts):
+    for image_file, count in counts.items():
+        video_id = extract_img_frame_info(image_file)
+        route_id = map_img_id_to_route_id(video_id)
+        if route_id:
+            for _ in range(count):
+                depart_speed = 10.0
+                depart_pos = 50
+                traci.vehicle.add(
+                    vehID=f"vehicle_{video_id}_{_}",
+                    routeID=route_id,
+                    departLane="random",
+                    departPos=depart_pos,
+                    departSpeed=depart_speed)
+                
+            # Generate one emergency vehicle for each direction
+            if video_id in ["NorthBound", "EastBound", "SouthBound"]:
+                for _ in range(4):
+                    # Define the depart position and speed for the emergency vehicle
+                    emergency_depart_pos = 50  # Adjust as needed
+                    emergency_depart_speed = 20.0  # Adjust as needed
+                    # Add the emergency vehicle with red color
+                    traci.vehicle.add(
+                        vehID=f"emergency_{video_id}_{_}",
+                        routeID=route_id,
+                        departLane="random",
+                        departPos=emergency_depart_pos,
+                        departSpeed=emergency_depart_speed,
+                        typeID="emergency"
+                    )
+        else:
+            print(f"Error: No route ID found for video ID '{video_id}'")
 
 
 def display_html_ui(counts):
@@ -109,13 +134,13 @@ def display_html_ui(counts):
 <body>
     <h1>Vehicle Counts at Junction</h1>
     <div class="lane-counts">
-        {"".join(f'<div class="lane"><h2>{lane}</h2><span>{count}</span></div>' for lane, count in counts.items())}
+    {"".join(f'<div class="lane"><h2>{os.path.splitext(lane)[0]}</h2><span>{count}</span></div>' for lane, count in counts.items())}
     </div>
 </body>
 </html>"""
 
     # Save to a temporary HTML file
-    html_file_path = 'Simulation3/index.html'
+    html_file_path = 'Simulation/index.html'
     with open(html_file_path, 'w') as file:
         file.write(html_content)
 
@@ -139,7 +164,7 @@ if __name__ == "__main__":
 
     # Initialize SUMO and TraCI
     sumo_binary = "C:/Program Files (x86)/Eclipse/Sumo/bin/sumo-gui.exe"  # Adjust the path to your SUMO GUI binary
-    sumo_config_file = "Simulation3/data/road.sumocfg"  # Adjust the path to your configuration file
+    sumo_config_file = "Simulation/data/road.sumocfg"  # Adjust the path to your configuration file
     
     if not os.path.exists(sumo_binary) or not os.path.exists(sumo_config_file):
         print("Error: SUMO binary or configuration file not found.")
