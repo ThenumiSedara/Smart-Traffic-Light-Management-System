@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on 2024-04-02 20:46:08 by Eclipse SUMO GUI Version 1.19.0
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/sumoConfiguration.xsd">
+
+    <input>
+        <net-file value="data/road.net.xml"/>
+        <route-files value="data/road.rou.xml"/>
+        <additional-files value="data/e2.add.xml"/>
+    </input>
+
+    <output>
+        <tripinfo-output value="tripinfo.xml"/>
+    </output>
+
+    <time>
+        <begin value="0"/>
+    </time>
+
+    <report>
+        <verbose value="false"/>
+        <no-step-log value="false"/>
+    </report>
+
+    <traci_server>
+        <remote-port value="57770"/>
+    </traci_server>
+
+    <gui_only>
+        <gui-settings-file value="data/road.settings.xml"/>
+        <start value="true"/>
+    </gui_only>
+
+</configuration>
+-->
+
+<snapshot xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/state_file.xsd" version="1.19.0" time="10.00" type="micro">
+    <route id="EastBound" state="1" edges="W-0W 0W-0 0-0E 0E-E"/>
+    <route id="NorthBound" state="1" edges="S-0S 0S-0 0-0N 0N-N"/>
+    <route id="SouthBound" state="1" edges="N-0N 0N-0 0-0S 0S-S"/>
+    <route id="WestBound" state="1" edges="E-0E 0E-0 0-0W 0W-W"/>
+    <delay number="4" begin="54" end="0" depart="2.00" time="0.00"/>
+    <vType id="typeNS" length="7.00" minGap="3.00" maxSpeed="25.00" guiShape="bus" accel="0.8" decel="4.5" sigma="0.5"/>
+    <vType id="typeWE" length="5.00" minGap="2.50" maxSpeed="16.67" guiShape="passenger" accel="0.8" decel="4.5" sigma="0.5"/>
+    <vehicle id="EastBound_10" type="typeWE" depart="25.00" route="EastBound" distance="0 0" speedFactor="1.0907" state="2050 9223372036854775807 0 -1.00 0 0.00 0 0 0" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0"/>
+    <vehicle id="EastBound_11" type="typeWE" depart="31.00" route="EastBound" distance="0 0" speedFactor="1.0263" state="2050 9223372036854775807 0 -1.00 0 0.00 0 0 0" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0"/>
+    <vehicle id="EastBound_13" type="typeWE" depart="34.00" route="EastBound" distance="0 0" speedFactor="1.1229" state="2050 9223372036854775807 0 -1.00 0 0.00 0 0 0" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0"/>
+    <vehicle id="EastBound_14" type="typeWE" depart="40.00" route="EastBound" distance="0 0" speedFactor="0.9912" state="2050 9223372036854775807 0 -1.00 0 0.00 0 0 0" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0"/>
+    <vehicle id="EastBound_16" type="typeWE" depart="44.00" route="EastBound" distance="0 0" speedFactor="0.8784" state="2050 9223372036854775807 0 -1.00 0 0.00 0 0 0" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0"/>
+    <vehicle id="EastBound_18" type="typeWE" depart="56.00" route="EastBound" distance="0 0" speedFactor="0.9362" state="2050 9223372036854775807 0 -1.00 0 0.00 0 0 0" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0"/>
+    <vehicle id="EastBound_19" type="typeWE" depart="63.00" route="EastBound" distance="0 0" speedFactor="1.1582" state="2050 9223372036854775807 0 -1.00 0 0.00 0 0 0" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0"/>
+    <vehicle id="EastBound_2" type="typeWE" depart="3.00" route="EastBound" distance="10.1 0" speedFactor="1.0104" state="2050 3000 1 5.10 0 5.22 9000 0 0" pos="8.03 3.03 3.60" speed="3.60 3.03" angle="90.00" posLat="0.00" waitingTime="100000 0">
+        <device id="tripinfo_EastBound_2" state="W-0W_0 0 0 5 0 0 0 0 -1"/>
+    </vehicle>
+    <vehicle id="EastBound_20" type="typeWE" depart="64.00" route="EastBound" distance="0 0" speedFactor="1.0181" state="2050 9223372036854775807 0 -1.00 0 0.00 0 0 0" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0"/>
+    <vehicle id="EastBound_24" type="typeWE" depart="81.00" route="EastBound" distance="0 0" speedFactor="0.8257" state="2050 9223372036854775807 0 -1.00 0 0.00 0 0 0" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0"/>
+    <vehicle id="EastBound_26" type="typeWE" depart="92.00" route="EastBound" distance="0 0" speedFactor="0.9172" state="2050 9223372036854775807 0 -1.00 0 0.00 0 0 0" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0"/>
+    <vehicle id="EastBound_30" type="typeWE" depart="115.00" route="EastBound" distance="0 0" speedFactor="1.1786" state="2050 9223372036854775807 0 -1.00 0 0.00 0 0 0" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0"/>
+    <vehicle id="EastBound_35" type="typeWE" depart="126.00" route="EastBound" distance="0 0" speedFactor="1.0197" state="2050 9223372036854775807 0 -1.00 0 0.00 0 0 0" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0"/>
+    <vehicle id="EastBound_36" type="typeWE" depart="127.00" route="EastBound" distance="0 0" speedFactor="0.9732" state="2050 9223372036854775807 0 -1.00 0 0.00 0 0 0" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0"/>
+    <vehicle id="EastBound_39" type="typeWE" depart="132.00" route="EastBound" distance="0 0" speedFactor="0.9006" state="2050 9223372036854775807 0 -1.00 0 0.00 0 0 0" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0"/>
+    <vehicle id="EastBound_44" type="typeWE" depart="150.00" route="EastBound" distance="0 0" speedFactor="1.0434" state="2050 9223372036854775807 0 -1.00 0 0.00 0 0 0" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0"/>
+    <vehicle id="EastBound_45" type="typeWE" depart="152.00" route="EastBound" distance="0 0" speedFactor="1.0880" state="2050 9223372036854775807 0 -1.00 0 0.00 0 0 0" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0"/>
+    <vehicle id="EastBound_47" type="typeWE" depart="164.00" route="EastBound" distance="0 0" speedFactor="0.9005" state="2050 9223372036854775807 0 -1.00 0 0.00 0 0 0" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0"/>
+    <vehicle id="EastBound_49" type="typeWE" depart="171.00" route="EastBound" distance="0 0" speedFactor="0.8504" state="2050 9223372036854775807 0 -1.00 0 0.00 0 0 0" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0"/>
+    <vehicle id="EastBound_5" type="typeWE" depart="11.00" route="EastBound" distance="0 0" speedFactor="0.8310" state="2050 9223372036854775807 0 -1.00 0 0.00 0 0 0" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0"/>
+    <vehicle id="EastBound_50" type="typeWE" depart="179.00" route="EastBound" distance="0 0" speedFactor="0.8549" state="2050 9223372036854775807 0 -1.00 0 0.00 0 0 0" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0"/>
+    <vehicle id="EastBound_51" type="typeWE" depart="180.00" route="EastBound" distance="0 0" speedFactor="1.1689" state="2050 9223372036854775807 0 -1.00 0 0.00 0 0 0" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0"/>
+    <vehicle id="EastBound_52" type="typeWE" depart="182.00" route="EastBound" distance="0 0" speedFactor="1.0168" state="2050 9223372036854775807 0 -1.00 0 0.00 0 0 0" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0"/>
+    <vehicle id="EastBound_7" type="typeWE" depart="22.00" route="EastBound" distance="0 0" speedFactor="0.8860" state="2050 9223372036854775807 0 -1.00 0 0.00 0 0 0" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0"/>
+    <vehicle id="NorthBound_28" type="typeNS" depart="103.00" color="red" route="NorthBound" distance="0 0" speedFactor="1.1318" state="2051 9223372036854775807 0 -1.00 0 0.00 0 0 0" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0"/>
+    <vehicle id="NorthBound_29" type="typeNS" depart="106.00" color="red" route="NorthBound" distance="0 0" speedFactor="0.9313" state="2051 9223372036854775807 0 -1.00 0 0.00 0 0 0" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0"/>
+    <vehicle id="NorthBound_3" type="typeNS" depart="4.00" color="red" route="NorthBound" distance="10.1 0" speedFactor="1.0827" state="2051 4000 1 7.10 0 4.48 9000 0 0" pos="6.35 9.45 3.11" speed="3.11 2.47" angle="0.00" posLat="0.00" waitingTime="100000 0">
+        <device id="tripinfo_NorthBound_3" state="S-0S_0 0 0 3 0 0 0 0 -1"/>
+    </vehicle>
+    <vehicle id="NorthBound_40" type="typeNS" depart="135.00" color="red" route="NorthBound" distance="0 0" speedFactor="1.0304" state="2051 9223372036854775807 0 -1.00 0 0.00 0 0 0" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0"/>
+    <vehicle id="NorthBound_6" type="typeNS" depart="16.00" color="red" route="NorthBound" distance="0 0" speedFactor="1.0458" state="2051 9223372036854775807 0 -1.00 0 0.00 0 0 0" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0"/>
+    <vehicle id="SouthBound_12" type="typeNS" depart="31.00" color="red" route="SouthBound" distance="0 0" speedFactor="1.0471" state="2051 9223372036854775807 0 -1.00 0 0.00 0 0 0" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0"/>
+    <vehicle id="SouthBound_22" type="typeNS" depart="72.00" color="red" route="SouthBound" distance="0 0" speedFactor="0.9750" state="2051 9223372036854775807 0 -1.00 0 0.00 0 0 0" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0"/>
+    <vehicle id="SouthBound_25" type="typeNS" depart="85.00" color="red" route="SouthBound" distance="0 0" speedFactor="0.8726" state="2051 9223372036854775807 0 -1.00 0 0.00 0 0 0" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0"/>
+    <vehicle id="SouthBound_27" type="typeNS" depart="98.00" color="red" route="SouthBound" distance="0 0" speedFactor="0.9488" state="2051 9223372036854775807 0 -1.00 0 0.00 0 0 0" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0"/>
+    <vehicle id="SouthBound_38" type="typeNS" depart="129.00" color="red" route="SouthBound" distance="0 0" speedFactor="1.1023" state="2051 9223372036854775807 0 -1.00 0 0.00 0 0 0" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0"/>
+    <vehicle id="SouthBound_43" type="typeNS" depart="149.00" color="red" route="SouthBound" distance="0 0" speedFactor="1.0378" state="2051 9223372036854775807 0 -1.00 0 0.00 0 0 0" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0"/>
+    <vehicle id="SouthBound_48" type="typeNS" depart="164.00" color="red" route="SouthBound" distance="0 0" speedFactor="0.8769" state="2051 9223372036854775807 0 -1.00 0 0.00 0 0 0" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0"/>
+    <vehicle id="SouthBound_9" type="typeNS" depart="23.00" color="red" route="SouthBound" distance="0 0" speedFactor="0.8569" state="2051 9223372036854775807 0 -1.00 0 0.00 0 0 0" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0"/>
+    <vehicle id="WestBound_0" type="typeWE" depart="0.00" route="WestBound" distance="10.1 0" speedFactor="1.0600" state="2050 0 1 5.10 0 7.05 9000 0 0" pos="27.45 22.45 6.22" speed="6.22 5.54" angle="270.00" posLat="0.00" waitingTime="100000 0">
+        <device id="tripinfo_WestBound_0" state="E-0E_0 0 0 5 0 0 0 0 -1"/>
+    </vehicle>
+    <vehicle id="WestBound_1" type="typeWE" depart="2.00" route="WestBound" distance="10.1 0" speedFactor="0.9383" state="2050 4000 1 5.10 0 4.58 9000 0 0" pos="1.58 6.68 2.45" speed="2.45 1.77" angle="270.00" posLat="0.00" waitingTime="100000 0">
+        <device id="tripinfo_WestBound_1" state="E-0E_0 0 0 5 0 0 0 0 -1"/>
+    </vehicle>
+    <vehicle id="WestBound_15" type="typeWE" depart="41.00" route="WestBound" distance="0 0" speedFactor="0.9268" state="2050 9223372036854775807 0 -1.00 0 0.00 0 0 0" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0"/>
+    <vehicle id="WestBound_17" type="typeWE" depart="49.00" route="WestBound" distance="0 0" speedFactor="0.9414" state="2050 9223372036854775807 0 -1.00 0 0.00 0 0 0" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0"/>
+    <vehicle id="WestBound_21" type="typeWE" depart="67.00" route="WestBound" distance="0 0" speedFactor="1.0102" state="2050 9223372036854775807 0 -1.00 0 0.00 0 0 0" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0"/>
+    <vehicle id="WestBound_23" type="typeWE" depart="74.00" route="WestBound" distance="0 0" speedFactor="0.8896" state="2050 9223372036854775807 0 -1.00 0 0.00 0 0 0" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0"/>
+    <vehicle id="WestBound_31" type="typeWE" depart="117.00" route="WestBound" distance="0 0" speedFactor="1.1544" state="2050 9223372036854775807 0 -1.00 0 0.00 0 0 0" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0"/>
+    <vehicle id="WestBound_32" type="typeWE" depart="120.00" route="WestBound" distance="0 0" speedFactor="1.0052" state="2050 9223372036854775807 0 -1.00 0 0.00 0 0 0" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0"/>
+    <vehicle id="WestBound_33" type="typeWE" depart="123.00" route="WestBound" distance="0 0" speedFactor="1.1718" state="2050 9223372036854775807 0 -1.00 0 0.00 0 0 0" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0"/>
+    <vehicle id="WestBound_34" type="typeWE" depart="125.00" route="WestBound" distance="0 0" speedFactor="0.9948" state="2050 9223372036854775807 0 -1.00 0 0.00 0 0 0" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0"/>
+    <vehicle id="WestBound_37" type="typeWE" depart="129.00" route="WestBound" distance="0 0" speedFactor="1.1797" state="2050 9223372036854775807 0 -1.00 0 0.00 0 0 0" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0"/>
+    <vehicle id="WestBound_4" type="typeWE" depart="10.00" route="WestBound" distance="0 0" speedFactor="1.0303" state="2050 9223372036854775807 0 -1.00 0 0.00 0 0 0" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0"/>
+    <vehicle id="WestBound_41" type="typeWE" depart="137.00" route="WestBound" distance="0 0" speedFactor="0.9571" state="2050 9223372036854775807 0 -1.00 0 0.00 0 0 0" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0"/>
+    <vehicle id="WestBound_42" type="typeWE" depart="147.00" route="WestBound" distance="0 0" speedFactor="1.0919" state="2050 9223372036854775807 0 -1.00 0 0.00 0 0 0" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0"/>
+    <vehicle id="WestBound_46" type="typeWE" depart="159.00" route="WestBound" distance="0 0" speedFactor="0.9974" state="2050 9223372036854775807 0 -1.00 0 0.00 0 0 0" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0"/>
+    <vehicle id="WestBound_53" type="typeWE" depart="204.00" route="WestBound" distance="0 0" speedFactor="1.0958" state="2050 9223372036854775807 0 -1.00 0 0.00 0 0 0" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0"/>
+    <vehicle id="WestBound_8" type="typeWE" depart="22.00" route="WestBound" distance="0 0" speedFactor="0.9379" state="2050 9223372036854775807 0 -1.00 0 0.00 0 0 0" pos="0.00 0.00 0.00" speed="0.00 0.00" angle="90.00" posLat="0.00" waitingTime="100000 0"/>
+    <lane id="0E-0_0">
+        <vehicles value="WestBound_1 WestBound_0"/>
+    </lane>
+    <lane id="0S-0_0">
+        <vehicles value="NorthBound_3"/>
+    </lane>
+    <lane id="0W-0_0">
+        <vehicles value="EastBound_2"/>
+    </lane>
+    <tlLogic id="tl0" programID="0" phase="0" duration="10000"/>
+</snapshot>
