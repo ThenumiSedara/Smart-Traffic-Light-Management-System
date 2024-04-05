@@ -14,52 +14,43 @@ def read_vehicle_counts(json_file):
         print(f"Error: File '{json_file}' not found.")
         return None
 
-def map_video_id_to_route_id(video_id):
-    route_mapping = {
-        "video2": "EastBound",
-        "video4": "WestBound",
-        "video5": "SouthBound",
-        "video6": "NorthBound"
-    }
-    return route_mapping.get(video_id, None)
-
-def extract_video_frame_info(image_file):
-    parts = image_file.split("_")
-    video_id = parts[0]
-    frame_number = int(parts[-1].split(".")[0])
-    return video_id, frame_number
 
 def generate_vehicles(counts):
-    for image_file, count in counts.items():
-        video_id, frame_number = extract_video_frame_info(image_file)
-        route_id = map_video_id_to_route_id(video_id)
-        if route_id:
-            for i in range(count):
-                depart_speed = 10.0
-                depart_pos = 50
-                traci.vehicle.add(
-                    vehID=f"vehicle_{video_id}_{frame_number}_{i}",
-                    routeID=route_id,  # Use the correct route ID
-                    departLane="random",
-                    departPos=depart_pos,
-                    departSpeed=depart_speed
-                )
-            # Generate one emergency vehicle for each direction
-            if video_id in ["video5", "video6"]:
-                # Define the depart position and speed for the emergency vehicle
-                emergency_depart_pos = 50  # Adjust as needed
-                emergency_depart_speed = 20.0  # Adjust as needed
-                # Add the emergency vehicle with red color
-                traci.vehicle.add(
-                    vehID=f"emergency_{video_id}_{frame_number}",
-                    routeID=route_id,
-                    departLane="random",
-                    departPos=emergency_depart_pos,
-                    departSpeed=emergency_depart_speed,
-                    typeID="emergency"
-                )
-        else:
-            print(f"Error: No route ID found for video ID '{video_id}'")
+    for direction, count in counts.items():
+        for i in range(count):
+            depart_speed = 10.0
+            depart_pos = 50
+            traci.vehicle.add(
+                vehID=f"vehicle_{direction}_{i}",
+                routeID=direction,
+                departLane="random",
+                departPos=depart_pos,
+                departSpeed=depart_speed
+            )
+
+    # Generate emergency vehicles
+    traci.vehicle.add(vehID="emergency_north_1", routeID="NorthBound", departLane="random", departPos=depart_pos,
+                      departSpeed=depart_speed, typeID="emergency")
+    traci.vehicle.add(vehID="emergency_north_2", routeID="NorthBound", departLane="random", departPos=depart_pos,
+                      departSpeed=depart_speed, typeID="emergency")
+    traci.vehicle.add(vehID="emergency_north_3", routeID="NorthBound", departLane="random", departPos=depart_pos,
+                      departSpeed=depart_speed, typeID="emergency")
+
+    traci.vehicle.add(vehID="emergency_south_1", routeID="SouthBound", departLane="random", departPos=depart_pos,
+                      departSpeed=depart_speed, typeID="emergency")
+    traci.vehicle.add(vehID="emergency_south_2", routeID="SouthBound", departLane="random", departPos=depart_pos,
+                      departSpeed=depart_speed, typeID="emergency")
+
+    traci.vehicle.add(vehID="emergency_west_1", routeID="WestBound", departLane="random", departPos=depart_pos,
+                      departSpeed=depart_speed, typeID="emergency")
+
+
+def find_lane_with_highest_count(counts):
+    max_count = max(counts.values())
+    for direction, count in counts.items():
+        if count == max_count:
+            return direction
+    return None
 
 if __name__ == "__main__":
     json_file = 'object_counts.json'
@@ -77,18 +68,40 @@ if __name__ == "__main__":
             stdout, stderr = proc.communicate()
             print("SUMO output:", stdout.decode())
             print("SUMO errors:", stderr.decode())
-            time.sleep(10)
+            time.sleep(2)
         else:
             print("Error: SUMO binary or configuration file not found.")
             exit()
 
         traci.start([sumo_binary, "-c", "road.sumocfg"])
 
+        print("SUMO started successfully.")
+
+        lane_with_highest_count = find_lane_with_highest_count(counts)
+        print("Lane with highest count:", lane_with_highest_count)
+
+        if lane_with_highest_count:
+            green_duration = 30  # Adjust the green light duration as needed
+            if lane_with_highest_count in ["NorthBound", "SouthBound"]:
+                traci.trafficlight.setPhase("tl0", 0)  # Both North and South
+            elif lane_with_highest_count in ["EastBound", "WestBound"]:
+                traci.trafficlight.setPhase("tl0", 2)  # Both East and West
+            traci.trafficlight.setPhaseDuration("tl0", green_duration)
+            print("Setting traffic light phase and duration...")
+
         generate_vehicles(counts)
+
+        print("Generating vehicles...")
 
         while traci.simulation.getMinExpectedNumber() > 0:
             traci.simulationStep()
 
+        print("Simulation completed.")
+
         traci.close()
 
+        print("Closing SUMO.")
+
         subprocess.Popen([sumo_binary, "-c", sumo_config_file])
+
+        print("Restarting SUMO...")

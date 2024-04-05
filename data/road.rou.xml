@@ -5,9 +5,9 @@
     <vType id="emergency" accel="1.0" decel="5.0" sigma="0.5" length="5" minGap="2.0" maxSpeed="30" color="1,0,0" guiShape="emergency"/>
 
     <!-- Define routes -->
-    <route id="EastBound" edges="W-0W 0W-0 0-0E 0E-E" />
-    <route id="WestBound" edges="E-0E 0E-0 0-0W 0W-W" />
-    <route id="SouthBound" edges="N-0N 0N-0 0-0S 0S-S" />
-    <route id="NorthBound" edges="S-0S 0S-0 0-0N 0N-N" />
+    <route id="WestBound" edges="W-0W 0W-0 0-0E 0E-E" />
+    <route id="EastBound" edges="E-0E 0E-0 0-0W 0W-W" />
+    <route id="NorthBound" edges="N-0N 0N-0 0-0S 0S-S" />
+    <route id="SouthBound" edges="S-0S 0S-0 0-0N 0N-N" />
 </routes>
 
