@@ -82,3 +82,4 @@ with open(output_file, 'w') as f:
     json.dump(merged_counts, f)
 
 print("Total vehicle counts saved to:", output_file)
+
