@@ -18,6 +18,7 @@ for /L %%i in (1,1,%rounds%) do (
     echo Running count.py...
     python Simulation\data\count.py
     
+    echo.
     echo Round %%i completed.
     echo.
 )

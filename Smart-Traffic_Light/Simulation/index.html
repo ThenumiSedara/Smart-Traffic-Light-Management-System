@@ -75,7 +75,7 @@
 <body>
     <h1>Vehicle Counts at Junction</h1>
     <div class="lane-counts" id="laneCounts">
-    <div class="lane" id="lane0"><h2>WestBound</h2><span>84</span></div><div class="lane" id="lane1"><h2>SouthBound</h2><span>53</span></div><div class="lane" id="lane2"><h2>NorthBound</h2><span>51</span></div><div class="lane" id="lane3"><h2>EastBound</h2><span>23</span></div>
+    <div class="lane" id="lane0"><h2>SouthBound</h2><span>52</span></div><div class="lane" id="lane1"><h2>EastBound</h2><span>38</span></div><div class="lane" id="lane2"><h2>WestBound</h2><span>19</span></div><div class="lane" id="lane3"><h2>NorthBound</h2><span>17</span></div>
     </div>
     <div id="timerDateContainer">
         <div id="timer" style="margin-bottom: 8px;">Timer: 5</div>
@@ -83,7 +83,7 @@
     </div>
     <script>
         document.addEventListener('DOMContentLoaded', (event) => {
-            let countdown = 5;
+            let countdown = 8;
             const timerElement = document.getElementById('timer');
             const dateElement = document.getElementById('dateStamp'); // Get the date stamp element
             const updateTimerAndDate = () => {
@@ -94,37 +94,43 @@
                 dateElement.innerText = `Date: ${dateString}`; // Update date stamp
                 countdown--;
                 if (countdown < 0) {
-                    countdown = 5;
+                    countdown = 8;
                 }
             };
 
-    // Initial timer and date update
-    updateTimerAndDate();
+            // Initial timer and date update
+            updateTimerAndDate();
 
-    // Update the timer and date every second
-    setInterval(updateTimerAndDate, 1000);
-
+            // Update the timer and date every second
+            setInterval(updateTimerAndDate, 1000);
+            
+            const lanes = document.querySelectorAll('.lane');
             let currentIndex = 0;
-            const laneCounts = document.getElementById("laneCounts").children;
-            const highlightLane = () => {
-                // Remove highlight from all lanes
-                for (let lane of laneCounts) {
-                    lane.classList.remove("highlight");
-                }
-                // Highlight the current lane
-                if (laneCounts[currentIndex]) {
-                    laneCounts[currentIndex].classList.add("highlight");
-                }
-                currentIndex = (currentIndex + 1) % laneCounts.length;
-                // Reset countdown when moving to the next lane
-                countdown = 4;
-            };
 
-            // Initial highlighting
+            const highlightLane = () => {
+                // Set all to red first
+                lanes.forEach(lane => {
+                    lane.style.backgroundColor = '#f69697';
+                });
+
+                // Then highlight the current index green
+                if (lanes[currentIndex]) {
+                    lanes[currentIndex].style.backgroundColor = '#ccffcc';
+                }
+                
+                // highlight the 2nd highest index yellow
+                const secondIndex = (currentIndex + 1) % lanes.length;
+                if (lanes[secondIndex]) {
+                    lanes[secondIndex].style.backgroundColor = '#feff78';
+                }
+                
+                currentIndex = (currentIndex + 1) % lanes.length;
+            };
+            
             highlightLane();
 
-            // Change highlight and reset timer every 5 seconds
-            setInterval(highlightLane, 6000);
+            // Change highlight and reset timer every 10 seconds
+            setInterval(highlightLane, 9000);
         });
     </script>
 </body>

@@ -192,7 +192,7 @@ def display_html_ui(counts):
     </div>
     <script>
         document.addEventListener('DOMContentLoaded', (event) => {{
-            let countdown = 5;
+            let countdown = 8;
             const timerElement = document.getElementById('timer');
             const dateElement = document.getElementById('dateStamp'); // Get the date stamp element
             const updateTimerAndDate = () => {{
@@ -203,37 +203,43 @@ def display_html_ui(counts):
                 dateElement.innerText = `Date: ${{dateString}}`; // Update date stamp
                 countdown--;
                 if (countdown < 0) {{
-                    countdown = 5;
+                    countdown = 8;
                 }}
             }};
 
-    // Initial timer and date update
-    updateTimerAndDate();
+            // Initial timer and date update
+            updateTimerAndDate();
 
-    // Update the timer and date every second
-    setInterval(updateTimerAndDate, 1000);
-
+            // Update the timer and date every second
+            setInterval(updateTimerAndDate, 1000);
+            
+            const lanes = document.querySelectorAll('.lane');
             let currentIndex = 0;
-            const laneCounts = document.getElementById("laneCounts").children;
-            const highlightLane = () => {{
-                // Remove highlight from all lanes
-                for (let lane of laneCounts) {{
-                    lane.classList.remove("highlight");
-                }}
-                // Highlight the current lane
-                if (laneCounts[currentIndex]) {{
-                    laneCounts[currentIndex].classList.add("highlight");
-                }}
-                currentIndex = (currentIndex + 1) % laneCounts.length;
-                // Reset countdown when moving to the next lane
-                countdown = 4;
-            }};
 
-            // Initial highlighting
+            const highlightLane = () => {{
+                // Set all to red first
+                lanes.forEach(lane => {{
+                    lane.style.backgroundColor = '#f69697';
+                }});
+
+                // Then highlight the current index green
+                if (lanes[currentIndex]) {{
+                    lanes[currentIndex].style.backgroundColor = '#ccffcc';
+                }}
+                
+                // highlight the 2nd highest index yellow
+                const secondIndex = (currentIndex + 1) % lanes.length;
+                if (lanes[secondIndex]) {{
+                    lanes[secondIndex].style.backgroundColor = '#feff78';
+                }}
+                
+                currentIndex = (currentIndex + 1) % lanes.length;
+            }};
+            
             highlightLane();
 
-            // Change highlight and reset timer every 5 seconds
-            setInterval(highlightLane, 6000);
+            // Change highlight and reset timer every 10 seconds
+            setInterval(highlightLane, 9000);
         }});
     </script>
 </body>
@@ -247,8 +253,8 @@ def display_html_ui(counts):
     driver = webdriver.Chrome(service=service)
     driver.set_window_size(800, 650)
     driver.get(f'file:///{os.path.abspath(html_file_path)}')
-    return driver
-
+    driver.refresh()
+    return driver 
 
 
 if __name__ == "__main__":
@@ -302,6 +308,3 @@ if __name__ == "__main__":
         except:
             pass
 
-    input("\nPress Enter to next step...\n")
-    if 'driver' in locals():
-        browser_driver.quit()
